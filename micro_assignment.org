@@ -1,0 +1,50 @@
+#+TITLE: Differences between 8051, PIC and ARM Architectures
+#+AUTHOR: Narendra Joshi
+#+OPTIONS: ^:nil num:nil
+#+HTML_HEAD: <link rel="stylesheet" href="./resources/styles/mystyle.css" type="text/css" />
+
+* RISC vs CISC
+
+*8051*: CISC \\
+*ARM and PIC*: RISC
+
+CISC 
+- Optimized for low code density. 
+- Provides more high level instructions.
+
+RISC
+- Optimized for low power.
+- Simpler and smaller CPU designs.
+
+Here's a good read: [[http://www.edwardbosworth.com/My5155_Slides/Chapter09/RISC_vs_CISC.htm][RISC vs CISC]]
+
+* Machine Models 
+
+*PIC and 8051* : A mix of Accumulator-Register & Register-Memory \\
+*ARM*: Register-Register 
+
+                            [[file:./microproc/machine_models.png][Machine Models]]
+
+- ARM family of architectures is 32-bit.\\
+- 8051 and PIC have 8-bit long data-buses.\\
+
+* Endianness
+- ARM processors are bi-endian. Instructions to change the
+  endianness. [[http://www.keil.com/support/man/docs/armasmref/armasmref_cjacabbf.htm][SETEND]]
+- PIC and 8051 are little-endian processors.
+
+#+ATTR_HTML: style="float:right;margin:0px 0px 20px 20px;"
+[[file:./microproc/fig2.jpg]]
+
+Links: [[http://www.arium.com/pdf/Endianness.pdf][Endianness and ARM]]
+[['http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/endian.html'][Big and Little Endian]]
+
+* Pipeline
+- ARM processors support a large number of pipeling stages
+  + ARM7 and earlier designs had 3-stage pipelines: Fetch, decode
+    and execute. ARM Cortex-A8 has *13* stages in the pipeline.
+- 8051 and PIC are very primitive in this case. The next instruction is fetched
+  while the previous one is executing. 
+[[file:./microproc/pipeline.jpg]]
+
+
